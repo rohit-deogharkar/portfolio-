@@ -2,7 +2,7 @@
 
 Personal portfolio site built to showcase my work as a Full Stack (MERN) Developer.
 
-**Live:** _add your deployed URL here after deploying_
+**Live:** [rohit-deogharkar.vercel.app](https://rohit-deogharkar.vercel.app/)
 
 ## Stack
 
