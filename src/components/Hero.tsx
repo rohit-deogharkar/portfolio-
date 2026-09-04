@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import Image from "next/image";
 import { ArrowRight, Mail } from "lucide-react";
 import { profile } from "@/lib/data";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
@@ -38,8 +39,9 @@ export default function Hero() {
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
 
+      <div className="relative grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-12">
       <motion.div
-        className="relative"
+        className="relative order-2 min-w-0 lg:order-1"
         variants={container}
         initial="hidden"
         animate="visible"
@@ -125,6 +127,31 @@ export default function Hero() {
           </motion.a>
         </motion.div>
       </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.7, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
+        className="relative order-1 justify-self-center lg:order-2 lg:justify-self-auto"
+      >
+        <motion.div
+          className="absolute -inset-3 rounded-full bg-accent/20 blur-2xl"
+          animate={{ opacity: [0.5, 0.9, 0.5] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <div className="relative h-40 w-40 overflow-hidden rounded-full ring-2 ring-accent/40 ring-offset-4 ring-offset-background sm:h-52 sm:w-52 lg:h-60 lg:w-60">
+          <Image
+            src="/rohit-trek.jpg"
+            alt={profile.name}
+            fill
+            priority
+            quality={95}
+            sizes="(min-width: 1024px) 640px, (min-width: 640px) 560px, 420px"
+            className="scale-125 object-cover object-[5%_center]"
+          />
+        </div>
+      </motion.div>
+      </div>
     </section>
   );
 }
